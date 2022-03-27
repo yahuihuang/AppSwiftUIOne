@@ -11,7 +11,7 @@ import SwiftUI
 struct AppSwiftUIOneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(displayString: "傳入參數測試-production!")
+            ContentView()
         }
     }
 }
