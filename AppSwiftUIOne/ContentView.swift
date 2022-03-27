@@ -13,11 +13,17 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
+            // 用Spacer()分三等分
+            Spacer()
             Text(displayString)
+                .foregroundColor(Color.gray)
+            Spacer()
             HStack {
                 Text("請輸入字串: ")
+                    .padding(.leading, 10.0)
                 TextField("", text: $displayString)
             }
+            Spacer()
         }
         
 //        TabView(selection: $activeTab) {
