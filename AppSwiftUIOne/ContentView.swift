@@ -8,25 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @State var activeTab: Int = 0
-//    @State var displayString: String = ""
-    @State var redBar: Float = 0
-    @State var greenBar: Float = 0
-    @State var blueBar: Float = 0
+    @State var redBar: Double = 0.5
+    @State var greenBar: Double = 0.5
+    @State var blueBar: Double = 0.5
     var body: some View {
-        VStack {
-            HStack {
-                Text("R: \(Int(redBar * 255))").font(.largeTitle)
-                Text("G: \(Int(greenBar * 255))").font(.largeTitle)
-                Text("B: \(Int(blueBar * 255))").font(.largeTitle)
-            }
-            Spacer()
+        
+        ZStack {
+            // 背景色
+            Color(red: redBar, green: greenBar, blue: blueBar)
+            
             VStack {
-                Slider(value: $redBar)
-                Slider(value: $greenBar)
-                Slider(value: $blueBar)
-            }.padding(.all, 30)
+                HStack {
+                    Text("R: \(Int(redBar * 255))").font(.largeTitle)
+                    Text("G: \(Int(greenBar * 255))").font(.largeTitle)
+                    Text("B: \(Int(blueBar * 255))").font(.largeTitle)
+                }
+                Spacer()
+                VStack {
+                    Slider(value: $redBar)
+                    Slider(value: $greenBar)
+                    Slider(value: $blueBar)
+                }.padding(.all, 30)
+            }
         }
+        
     }
 }
 
