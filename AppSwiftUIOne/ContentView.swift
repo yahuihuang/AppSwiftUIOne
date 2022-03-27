@@ -24,9 +24,9 @@ struct ContentView: View {
     var ctrl: some View {
         VStack {
             HStack {
-                Text("R: \(Int(redBar * 255))").font(.largeTitle)
-                Text("G: \(Int(greenBar * 255))").font(.largeTitle)
-                Text("B: \(Int(blueBar * 255))").font(.largeTitle)
+                MyText(title: "R", value: redBar)
+                MyText(title: "G", value: greenBar)
+                MyText(title: "B", value: blueBar)
             }
             Spacer()
             VStack {
@@ -37,6 +37,15 @@ struct ContentView: View {
         }
     }
     
+}
+
+struct MyText: View {
+    var title: String
+    var value: Double
+    
+    var body: some View {
+        Text("\(title): \(Int(value * 255))").font(.largeTitle);
+    }
 }
 
 //struct ColorContainer: View {
