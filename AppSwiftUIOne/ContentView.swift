@@ -8,23 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var activeTab: Int = 0
-    @State var displayString: String = "這是傳入參數的測試Ｉ"
+//    @State var activeTab: Int = 0
+    @State var displayString: String = ""
     var body: some View {
-        TabView(selection: $activeTab) {
-            Text("in Page \(activeTab)").tabItem { Image(systemName: "list.bullet")}.tag(1)
-            
-            Text("in Page \(activeTab)").tabItem {
-                Image(systemName: "list.bullet")}.tag(2)
-            
-            Text(displayString).tabItem {
-                Image(systemName: "list.bullet")}.tag(3)
+        
+        VStack {
+            Text(displayString)
+            HStack {
+                Text("請輸入字串: ")
+                TextField("", text: $displayString)
+            }
         }
+        
+//        TabView(selection: $activeTab) {
+//            Text("in Page \(activeTab)").tabItem { Image(systemName: "list.bullet")}.tag(1)
+//
+//            Text("in Page \(activeTab)").tabItem {
+//                Image(systemName: "list.bullet")}.tag(2)
+//
+//            Text(displayString).tabItem {
+//                Image(systemName: "list.bullet")}.tag(3)
+//        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(displayString: "傳入參數測試-preview!")
     }
 }
