@@ -44,7 +44,10 @@ struct MyText: View {
     var value: Double
     
     var body: some View {
-        Text("\(title): \(Int(value * 255))").font(.largeTitle);
+//        Text("\(title): \(Int(value * 255))").font(.largeTitle);
+        Text(String(format: "%@: %03.0f", title, Int(value * 255)))
+            .font(.largeTitle)
+            .frame(width: 100, height: 40, alignment: .leading);
     }
 }
 
